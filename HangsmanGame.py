@@ -1,15 +1,20 @@
+#The old good Hangsman game
+#The App choose a word randomly from thw wordlist.txt 
+#the user have by def 15 lives
+
+
 import random
 from os import system, name
-
+#choosing a word
 with open('wordlist.txt', 'r' , encoding = "utf8") as f:
     word=random.choice(f.readlines()).rstrip()
-    
+# Init vars
 found=False
 lives=15
 tries=0;
 letters=[]
 
-
+# 
 def clear():
     # check and make call for specific operating system
     
@@ -21,7 +26,7 @@ def clear():
     else:
         _ = system('cls')
 
-def hide(): # hide letter function - 
+def hide(): # hide not found yet letters  function - 
     hidden=''
     for letter in word:
         if letter in letters:
